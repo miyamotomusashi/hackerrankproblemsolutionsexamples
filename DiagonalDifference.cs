@@ -30,22 +30,17 @@ namespace HackerRankSolutions
 
     public int CalculateDiagonalDifference()
     {
-      int right = 0;
-      int left = 0;
-      int result = 0;
+      int sum = 0;
+      int index = 0;
+      int length = matrice.Count - 1;
 
-      for (int i = 0; i < matrice.Count; i++)
+      foreach(var item in matrice)
       {
-        for (int j = 0; j < matrice.Count; j++)
-        {
-          right = matrice[0][0] + matrice[1][1] + matrice[2][2];
-          left = matrice[2][0] + matrice[1][1] + matrice[0][2];
-        }
-
-        result = Math.Abs(right - left);
+        int temp = item[index] - item[length - index];
+        sum += temp;index++;
       }
+      return Math.Abs(sum);
 
-      return result;
     }
   }
 }
